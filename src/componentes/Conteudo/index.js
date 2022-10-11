@@ -1,9 +1,12 @@
 import './index.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Cert2 from '../../certificado2.jpg'
 import Cert3 from '../../certificado3.jpg'
 import Axios from '../../Axios'
 import Dow from '../../dowload.png'
+import Est1 from '../../estilo1.png'
+import Est2 from '../../estilo2.png'
+import Eng from '../../engrenagem.png'
 
 export default function Conteudo(){
     const [ imagem, setimagem] = useState(<img  className='principal' alt="perfil2"  style={{width:'90%', height:'90%'}} src=''></img>)
@@ -15,6 +18,8 @@ export default function Conteudo(){
     const [tipo, settipo] = useState('tipo2')
     const [rgb, setrgb] = useState([0, 0,5])
     const [download, setdownload] = useState(null)
+    useEffect(() =>{
+    })
     function filtroConteudo(e){
         if(e.length> 78){
             e = e.match(/.{1,78}/g)
@@ -30,6 +35,10 @@ export default function Conteudo(){
         }
     }
     function criar_imagem(){
+        const tag = <div  className='loading'>
+            <img alt='eng' src={Eng}></img>
+        </div>
+        setdownload(tag)
         Axios.post("https://Criarcertificado.vitorfail.repl.co", {nome:nome,
         diretor:diretor,
         reitor:reitor,
@@ -43,7 +52,7 @@ export default function Conteudo(){
             const url = res.data
             const imageurl = URL.createObjectURL(url);
             const aTag = <a href={imageurl} download='certificado.jpg'>
-                <img src={Dow}></img>
+                <img alt='dowload' src={Dow}></img>
             </a>
             setdownload(aTag)
             setimagem(<img className='principal' alt="perfil2"  src={imageurl}></img>)
@@ -54,9 +63,22 @@ export default function Conteudo(){
     }
     return(
         <div className='conteudo'>
-            <div style={{display:'flex', justifyContent:'center', marginTop:'35px',height:'30%', width:'100%'}}>
+            <div className='comeco'>
+                <h1>Certificado Maker</h1>
+                <h3>Crie  seus certificado de maneira rápida e com qualidade.
+                     Nossa ferramente pode fazer quantidades consideréveis de certificados em vários nomes.</h3>
+            </div>
+            <div className='estilo'>
+                    <img alt='style' src={Est2}></img>
+                    <img alt='style' src={Est1}></img>
+            </div>
+            <div style={{display:'flex', justifyContent:'center',alignItems:'center', height:'40%', width:'100%'}}>
                 <img className='modelo' src={Cert2} alt='Certificado2'></img>
                 <img className='modelo' src={Cert3} alt='Certificado3'></img>
+            </div>
+            <div className='estilo'>
+                    <img alt='style' src={Est2}></img>
+                    <img alt='style' src={Est1}></img>
             </div>
             <div style={{display:'flex', flexDirection:'column',alignItems:'center' , height:'1500px', width:'100%', paddingBottom:"45px"}}>
                 <div className='descri'>
@@ -227,7 +249,7 @@ export default function Conteudo(){
                     </div>
                 </div>
                 <div>
-                    <button onClick={() => criar_imagem()} className='criar'>Gerar</button>
+                    <button onClick={() => criar_imagem()} className='criar'>Gerar imagem</button>
                 </div>    
                 <div className='container' >
                     {download}
