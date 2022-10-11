@@ -13,18 +13,22 @@ export default function Conteudo(){
     const [conteudo, setconteudo] = useState('Nada')
     const [tipo, settipo] = useState('tipo2')
     const [rgb, setrgb] = useState([0, 0,5])
-
+    function filtroConteudo(e){
+        if(e.length> 78){
+            e = e.match(/.{1,78}/g)
+        }
+    }
     function criar_imagem(){
         Axios.post("https://Criarcertificado.vitorfail.repl.co", {nome:nome,
         diretor:diretor,
         reitor:reitor,
         data:data,
-        conteudo:conteudo,
+        conteudo:filtroConteudo(conteudo),
          tipo:tipo,
         rgb:rgb},
         {responseType: 'blob'})
         .then(res => {
-            console.log('nada')
+            console.log("Minha experiência de trabalho fez de mim mais resolutivo e proativo. Tendo que".length)
             const url = res.data
             const imageurl = URL.createObjectURL(url);
             setimagem(<img className='principal' alt="perfil2"  src={imageurl}></img>)
@@ -210,7 +214,7 @@ export default function Conteudo(){
                         <button onClick={() => criar_imagem()} className='criar'>Gerar</button>
                     </div>    
                 </div>
-                <div style={{margin:'9px', height:'100%', width:'65%'}}>
+                <div className='container' >
                     {imagem}
                 </div>
             </div>

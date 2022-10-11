@@ -7,12 +7,25 @@
     flex-direction: column;
 }
 .conteudo .descri{
+    box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
+    border-radius: 22px;
     overflow-y: auto;
     scale: 0.9;
     height:100%; 
     width:35%;
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
+}
+.conteudo .container{
+    border-radius: 22px;
+    background: #3951b2;
+    height:100%; 
+    width:65%; 
+    scale:0.9;
+    box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
+}
+.conteudo .container img{
+    border-radius: 22px;
 }
 .conteudo .descri::-webkit-scrollbar{
     display: none;
