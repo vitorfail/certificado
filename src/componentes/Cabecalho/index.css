@@ -1,0 +1,28 @@
+header{
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: rgb(59, 117, 119);
+}
+header .selo{
+    display: flex;
+    justify-content: center;
+    width: 7%;
+    height: 100%;
+    background: rgb(22, 145, 228);
+    box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
+}
+header .selo::after{
+    box-shadow: 7px 7px 8px rgba(51, 51, 51, 0.533);
+    top:1px;
+    position: absolute;
+    content: "";
+    background: rgb(22, 145, 228);
+    height: 65px;
+    width: 65px;
+    transform: rotate(45deg);
+}

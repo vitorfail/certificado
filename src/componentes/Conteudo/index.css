@@ -1,0 +1,156 @@
+.conteudo{
+    margin-top: 42px;
+    width: 100%;
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.conteudo .descri{
+    overflow-y: auto;
+    scale: 0.9;
+    height:100%; 
+    width:40%;
+    background: rgb(255, 255, 255);
+    box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
+}
+.conteudo .descri::-webkit-scrollbar{
+    display: none;
+}
+.conteudo .descri .box{
+    border-bottom: 2px solid rgba(94, 94, 94, 0.26);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 284px;
+}
+.conteudo .descri .box input{
+    border: 2px solid rgb(219, 219, 219);
+    border-radius: 5px;
+    outline: none;
+    font-size: 24px;
+    transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -webkit-appearance: none;
+}
+.conteudo .descri .box input:focus{
+    border: 2px solid #3951b2;
+}
+.conteudo .descri .box h3{
+    border: 1px solid lightgrey;
+    font-size: 27px;
+}
+.conteudo .descri .linha{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 65px;
+}
+.conteudo .descri .linha select{
+    height: 78%;
+    margin: 0;
+    width: 60%;
+    font-size: 24px;
+}
+.conteudo .descri .linha input{
+    width: 60%;
+}
+.conteudo .descri .linha h4{
+    width: 40%;
+    font-size: 22px;
+}
+.linha select .BauerBodoniStd-Roman{
+    font-family: BauerBodoniStd-Roman;
+}
+.linha select .BODONI BK BT BOOK ITALIC{
+    font-family: BODONI BK BT BOOK ITALIC;
+}
+.linha select .BODONI BK BT BOOK{
+    font-family: BODONI BK BT BOOK;
+}
+.linha select .cac_champagne{
+    font-family: cac_champagne;
+}
+.linha select .Net-WT-Hilton-Script-Regular{
+    font-family: Net-WT-Hilton-Script-Regular;
+}
+.linha select .Roboto-Black{
+    font-family: Roboto-Black;
+}
+.linha select .Roboto-BlackItalic{
+    font-family: Roboto-BlackItalic;
+}
+.linha select .Roboto-Bold{
+    font-family: Roboto-Bold;
+}
+.linha select .Roboto-BoldCondensed{
+    font-family: Roboto-BoldCondensed;
+}
+.linha select .Roboto-BoldCondensedItalic{
+    font-family: Roboto-BoldCondensedItalic;
+}
+.linha select .Roboto-BoldItalic{
+    font-family: Roboto-BoldItalic;
+}
+.linha select .Roboto-Condensed{
+    font-family: Roboto-Condensed;
+}
+.linha select .Roboto-CondensedItalic{
+    font-family: Roboto-CondensedItalic;
+}
+.linha select .Roboto-Italic{
+    font-family: Roboto-Italic;
+}
+.linha select .Roboto-Light{
+    font-family: Roboto-Light;
+}
+.linha select .Roboto-LightItalic{
+    font-family: Roboto-LightItalic;
+}
+.linha select .Roboto-Medium{
+    font-family: Roboto-Medium;
+}
+.linha select .Roboto-MediumItalic{
+    font-family: Roboto-MediumItalic;
+}
+.linha select .Roboto-Regular{
+    font-family: Roboto-Regular;
+}
+.linha select .Roboto-Thin{
+    font-family: Roboto-Thin;
+}
+.linha select .Roboto-ThinItalic{
+    font-family: Roboto-ThinItalic;
+}
+.conteudo .descri button{
+    font-weight: 800;
+    color: white;
+    font-size: 23px;
+    background: #3951b2;
+    width: 30%;
+    height: 56px;
+    outline: none;
+    border: none;
+}
+.conteudo .descri button:hover{
+    cursor: pointer;
+    background: white;
+    color: #3951b2;
+    border: 1px solid #3951b2;
+}
+.conteudo img{
+    transition: all ease 0.2s;
+    scale: 0.9;
+    width: 20%;
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.conteudo img:hover{
+    border: 1px solid rgb(59, 71, 173);
+
+    cursor: pointer;
+    scale: 1;
+}
