@@ -80,7 +80,7 @@ export default function Conteudo(){
                     <img alt='style' src={Est2}></img>
                     <img alt='style' src={Est1}></img>
             </div>
-            <div style={{display:'flex', flexDirection:'column',alignItems:'center' , height:'1500px', width:'100%', paddingBottom:"45px"}}>
+            <div style={{display:'flex', height:'47%', width:'100%', paddingBottom:"45px"}}>
                 <div className='descri'>
                     <div className='box'>
                         <h3>Formando: </h3>
@@ -248,14 +248,14 @@ export default function Conteudo(){
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button onClick={() => criar_imagem()} className='criar'>Gerar imagem</button>
-                </div>    
                 <div className='container' >
                     {download}
                     {imagem}
                 </div>
             </div>
+            <div>
+                <button onClick={() => criar_imagem()} className='criar'>Gerar imagem</button>
+            </div> 
         </div>
     )
 }
