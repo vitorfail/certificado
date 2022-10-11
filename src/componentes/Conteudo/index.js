@@ -1,18 +1,17 @@
 import './index.css'
 import React, { useState } from 'react'
-import { Buffer } from 'buffer';
 import Cert2 from '../../certificado2.jpg'
 import Cert3 from '../../certificado3.jpg'
 import Axios from '../../Axios'
 
 export default function Conteudo(){
-    const [ imagem, setimagem] = useState(<img alt="perfil2"  style={{width:'90%', height:'90%'}} src=''></img>)
+    const [ imagem, setimagem] = useState(<img  className='principal' alt="perfil2"  style={{width:'90%', height:'90%'}} src=''></img>)
     const [nome, setnome] = useState('Nada')
     const [diretor, setdiretor] = useState('Nada')
     const [reitor, setreitor] = useState('Nada')
     const [data, setdata] = useState('Nada')
     const [conteudo, setconteudo] = useState('Nada')
-    const [tipo, settipo] = useState('tipo1')
+    const [tipo, settipo] = useState('tipo2')
     const [rgb, setrgb] = useState([0, 0,5])
 
     function criar_imagem(){
@@ -22,11 +21,13 @@ export default function Conteudo(){
         data:data,
         conteudo:conteudo,
          tipo:tipo,
-        rgb:rgb})
+        rgb:rgb},
+        {responseType: 'blob'})
         .then(res => {
             console.log('nada')
-            const Base64 = Buffer.from(res.data, "binary").toString("base64")
-            setimagem(<img alt="perfil2"  src={`data:image/jpg;charset=utf-8;base64,${Base64}`}></img>)
+            const url = res.data
+            const imageurl = URL.createObjectURL(url);
+            setimagem(<img className='principal' alt="perfil2"  src={imageurl}></img>)
         })
         .catch(err => {
             console.log(err)
@@ -34,17 +35,17 @@ export default function Conteudo(){
     }
     return(
         <div className='conteudo'>
-            <div style={{display:'flex', justifyContent:'center' , height:'70%', width:'100%'}}>
+            <div style={{display:'flex', justifyContent:'center', height:'30%', width:'100%'}}>
+                <img className='modelo' src={Cert2} alt='Certificado2'></img>
+                <img className='modelo' src={Cert3} alt='Certificado3'></img>
+            </div>
+            <div style={{display:'flex', justifyContent:'center' , height:'80%', width:'100%', paddingBottom:"45px"}}>
                 <div className='descri'>
                     <div className='box'>
                         <h3>Formando: </h3>
                         <div className='linha'>
                             <h4>Nome:</h4>
                             <input onChange={(event) => setnome(event.target.value)} placeholder='José Manoel'></input>
-                        </div>
-                        <div className='linha'>
-                            <h4>Tamanho:</h4>
-                            <input type='number'></input>
                         </div>
                         <div className='linha'>
                             <h4>Fonte:</h4>
@@ -80,10 +81,6 @@ export default function Conteudo(){
                             <input onChange={(event) => setdiretor(event.target.value)} placeholder='José Manoel'></input>
                         </div>
                         <div className='linha'>
-                            <h4>Tamanho:</h4>
-                            <input type='number'></input>
-                        </div>
-                        <div className='linha'>
                             <h4>Fonte:</h4>
                             <select>
                                 <option className='BauerBodoniStd-Roman' value={"BauerBodoniStd-Roman"}>BauerBodoniStd-Roman</option>
@@ -115,10 +112,6 @@ export default function Conteudo(){
                         <div className='linha'>
                             <h4>Nome:</h4>
                             <input onChange={(event) => setreitor(event.target.value)} placeholder='José Manoel'></input>
-                        </div>
-                        <div className='linha'>
-                            <h4>Tamanho:</h4>
-                            <input type='number'></input>
                         </div>
                         <div className='linha'>
                             <h4>Fonte:</h4>
@@ -154,10 +147,6 @@ export default function Conteudo(){
                             <input onChange={(event) => setconteudo(event.target.value)} placeholder='José Manoel'></input>
                         </div>
                         <div className='linha'>
-                            <h4>Tamanho:</h4>
-                            <input type='number'></input>
-                        </div>
-                        <div className='linha'>
                             <h4>Fonte:</h4>
                             <select>
                                 <option className='BauerBodoniStd-Roman' value={"BauerBodoniStd-Roman"}>BauerBodoniStd-Roman</option>
@@ -191,10 +180,6 @@ export default function Conteudo(){
                             <input onChange={(event) => setdata(event.target.value)} placeholder='José Manoel'></input>
                         </div>
                         <div className='linha'>
-                            <h4>Tamanho:</h4>
-                            <input type='number'></input>
-                        </div>
-                        <div className='linha'>
                             <h4>Fonte:</h4>
                             <select>
                                 <option className='BauerBodoniStd-Roman' value={"BauerBodoniStd-Roman"}>BauerBodoniStd-Roman</option>
@@ -225,13 +210,9 @@ export default function Conteudo(){
                         <button onClick={() => criar_imagem()} className='criar'>Gerar</button>
                     </div>    
                 </div>
-                <div style={{margin:'9px', height:'100%', width:'60%'}}>
+                <div style={{margin:'9px', height:'100%', width:'65%'}}>
                     {imagem}
                 </div>
-            </div>
-            <div style={{display:'flex', justifyContent:'center', height:'30%', width:'100%'}}>
-                <img src={Cert2} alt='Certificado2'></img>
-                <img src={Cert3} alt='Certificado3'></img>
             </div>
         </div>
     )

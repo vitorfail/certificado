@@ -10,7 +10,7 @@
     overflow-y: auto;
     scale: 0.9;
     height:100%; 
-    width:40%;
+    width:35%;
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
 }
@@ -23,22 +23,29 @@
     justify-content: flex-start;
     flex-direction: column;
     width: 100%;
-    height: 284px;
+    height: 184px;
 }
 .conteudo .descri .box input{
-    border: 2px solid rgb(219, 219, 219);
-    border-radius: 5px;
+    font-weight: 800;
+    border: none;
     outline: none;
+    border-bottom: 2px solid rgb(169, 188, 228);
+    border-radius: 5px;
     font-size: 24px;
     transition: all .1s linear;
     -webkit-transition: all .1s linear;
     -moz-transition: all .1s linear;
     -webkit-appearance: none;
 }
+.conteudo .descri .box input::placeholder{
+    color: rgb(204, 204, 204);
+}
 .conteudo .descri .box input:focus{
-    border: 2px solid #3951b2;
+    border-bottom: 2px solid rgb(42, 89, 190) ;
 }
 .conteudo .descri .box h3{
+    background: rgb(59, 117, 119);
+    color: white;
     border: 1px solid lightgrey;
     font-size: 27px;
 }
@@ -49,16 +56,18 @@
     height: 65px;
 }
 .conteudo .descri .linha select{
+    border: 2px solid rgb(169, 188, 228);
+    border-radius: 10px;
     height: 78%;
     margin: 0;
-    width: 60%;
+    width: 80%;
     font-size: 24px;
 }
 .conteudo .descri .linha input{
-    width: 60%;
+    width: 80%;
 }
 .conteudo .descri .linha h4{
-    width: 40%;
+    width: 20%;
     font-size: 22px;
 }
 .linha select .BauerBodoniStd-Roman{
@@ -140,7 +149,11 @@
     color: #3951b2;
     border: 1px solid #3951b2;
 }
-.conteudo img{
+.conteudo .principal{
+    width: 100%;
+    height: 100%;
+}
+.conteudo .modelo{
     transition: all ease 0.2s;
     scale: 0.9;
     width: 20%;
@@ -148,7 +161,7 @@
     border: 1px solid black;
     border-radius: 20px;
 }
-.conteudo img:hover{
+.conteudo .modelo:hover{
     border: 1px solid rgb(59, 71, 173);
 
     cursor: pointer;
