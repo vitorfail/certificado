@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Cert2 from '../../certificado2.jpg'
 import Cert3 from '../../certificado3.jpg'
 import Axios from '../../Axios'
+import Dow from '../../dowload.png'
 
 export default function Conteudo(){
     const [ imagem, setimagem] = useState(<img  className='principal' alt="perfil2"  style={{width:'90%', height:'90%'}} src=''></img>)
@@ -13,9 +14,19 @@ export default function Conteudo(){
     const [conteudo, setconteudo] = useState('Nada')
     const [tipo, settipo] = useState('tipo2')
     const [rgb, setrgb] = useState([0, 0,5])
+    const [download, setdownload] = useState(null)
     function filtroConteudo(e){
         if(e.length> 78){
             e = e.match(/.{1,78}/g)
+            var c = ''
+            for(var i =0; i<e.length;i++){
+                c = c+'\n'+e[i]
+            }
+            console.log(c)
+            return c
+        }
+        else{
+            return e
         }
     }
     function criar_imagem(){
@@ -31,6 +42,10 @@ export default function Conteudo(){
             console.log("Minha experiência de trabalho fez de mim mais resolutivo e proativo. Tendo que".length)
             const url = res.data
             const imageurl = URL.createObjectURL(url);
+            const aTag = <a href={imageurl} download='certificado.jpg'>
+                <img src={Dow}></img>
+            </a>
+            setdownload(aTag)
             setimagem(<img className='principal' alt="perfil2"  src={imageurl}></img>)
         })
         .catch(err => {
@@ -39,11 +54,11 @@ export default function Conteudo(){
     }
     return(
         <div className='conteudo'>
-            <div style={{display:'flex', justifyContent:'center', height:'30%', width:'100%'}}>
+            <div style={{display:'flex', justifyContent:'center', marginTop:'35px',height:'30%', width:'100%'}}>
                 <img className='modelo' src={Cert2} alt='Certificado2'></img>
                 <img className='modelo' src={Cert3} alt='Certificado3'></img>
             </div>
-            <div style={{display:'flex', justifyContent:'center' , height:'80%', width:'100%', paddingBottom:"45px"}}>
+            <div style={{display:'flex', flexDirection:'column',alignItems:'center' , height:'1500px', width:'100%', paddingBottom:"45px"}}>
                 <div className='descri'>
                     <div className='box'>
                         <h3>Formando: </h3>
@@ -210,11 +225,12 @@ export default function Conteudo(){
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <button onClick={() => criar_imagem()} className='criar'>Gerar</button>
-                    </div>    
                 </div>
+                <div>
+                    <button onClick={() => criar_imagem()} className='criar'>Gerar</button>
+                </div>    
                 <div className='container' >
+                    {download}
                     {imagem}
                 </div>
             </div>
