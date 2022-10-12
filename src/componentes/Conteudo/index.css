@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
-    height:100%;
+    height:95%;
     margin-top: 34px;
     margin-left: 34px;
     margin-bottom: 34px; 
@@ -51,7 +51,7 @@
     margin-right: 34px;
     margin-bottom: 34px; 
     background: #3951b2;
-    height:100%; 
+    height:95%; 
     width:100%; 
     box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
 }
@@ -79,7 +79,7 @@
     opacity: 0;
     position: absolute;
     width: 76.5%;
-    height: 91.5%;
+    height: 95%;
     background: rgba(46, 46, 46, 0.445);
     display: flex;
     justify-content: center;
@@ -101,7 +101,7 @@
     justify-content: flex-start;
     flex-direction: column;
     width: 100%;
-    height: 84px;
+    height: 74px;
 }
 .conteudo .descri .box input{
     font-weight: 800;
