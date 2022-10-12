@@ -10,7 +10,9 @@ import Eng from '../../engrenagem.png'
 import { SketchPicker } from 'react-color'
 
 export default function Conteudo(){
-    const [ imagem, setimagem] = useState(<img  className='principal' alt="perfil2"  style={{width:'90%', height:'90%'}} src=''></img>)
+    const [execution ,setexecution] =useState(false)
+    const [mostrardowload ,setmostrardowload] =useState(false)
+    const [imagem, setimagem] = useState('')
     const [nome, setnome] = useState('Nada')
     const [diretor, setdiretor] = useState('Nada')
     const [reitor, setreitor] = useState('Nada')
@@ -18,7 +20,6 @@ export default function Conteudo(){
     const [conteudo, setconteudo] = useState('Nada')
     const [tipo, settipo] = useState('tipo2')
     const [rgb, setrgb] = useState("#37d67a");
-    const [download, setdownload] = useState(null)
     useEffect(() =>{
     })
     function hexToRgb(hex) {
@@ -45,10 +46,7 @@ export default function Conteudo(){
         }
     }
     function criar_imagem(){
-        const tag = <div  className='loading'>
-            <img alt='eng' src={Eng}></img>
-        </div>
-        setdownload(tag)
+        setexecution(true)
         Axios.post("https://Criarcertificado.vitorfail.repl.co", {nome:nome,
         diretor:diretor,
         reitor:reitor,
@@ -61,13 +59,12 @@ export default function Conteudo(){
             console.log("Minha experiência de trabalho fez de mim mais resolutivo e proativo. Tendo que".length)
             const url = res.data
             const imageurl = URL.createObjectURL(url);
-            const aTag = <a href={imageurl} download='certificado.jpg'>
-                <img alt='dowload' src={Dow}></img>
-            </a>
-            setdownload(aTag)
-            setimagem(<img className='principal' alt="perfil2"  src={imageurl}></img>)
+            setexecution(false)
+            setimagem(imageurl)
+            setmostrardowload(true)
         })
         .catch(err => {
+            setexecution(false)
             console.log(err)
         })
     }
@@ -125,8 +122,15 @@ export default function Conteudo(){
                     <SketchPicker disableAlpha={true} color={rgb} height='200px' width='91%' onChange={(color) => setrgb(color.hex)} />
                 </div>
                 <div className='container' >
-                    {download}
-                    {imagem}
+                    <div className='principal' alt="perfil2" style={{backgroundImage:'url('+imagem+')', backgroundRepeat:'no-repeat', backgroundPosition:'center', backgroundSize:'cover'}}>
+                        <div  className={execution? 'loading show': 'loading'}>
+                            <img alt='eng' src={Eng}></img>
+                            <h2>Aguarde. Estamos criando o certificado......</h2>
+                        </div>
+                        <a href={imagem} className={mostrardowload? 'dowload show': 'dowload'} download='certificado.jpg'>
+                            <img alt='dowload' src={Dow}></img>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div>
