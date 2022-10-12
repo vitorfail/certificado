@@ -87,7 +87,7 @@ export default function Conteudo(){
                     <img alt='style' src={Est2}></img>
                     <img alt='style' src={Est1}></img>
             </div>
-            <div style={{display:'flex', height:'47%', width:'100%', paddingBottom:"45px"}}>
+            <div style={{scale:'0.9',display:'flex', height:'47%', width:'100%', paddingBottom:"45px"}}>
                 <div className='descri'>
                     <div className='box'>
                         <h3>Formando: </h3>
