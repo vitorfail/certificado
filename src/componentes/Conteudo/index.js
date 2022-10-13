@@ -13,13 +13,14 @@ export default function Conteudo(){
     const [execution ,setexecution] =useState(false)
     const [mostrardowload ,setmostrardowload] =useState(false)
     const [imagem, setimagem] = useState('')
-    const [nome, setnome] = useState('Nada')
-    const [diretor, setdiretor] = useState('Nada')
-    const [reitor, setreitor] = useState('Nada')
-    const [data, setdata] = useState('Nada')
-    const [conteudo, setconteudo] = useState('Nada')
+    const [nome, setnome] = useState(' ')
+    const [diretor, setdiretor] = useState(' ')
+    const [reitor, setreitor] = useState(' ')
+    const [data, setdata] = useState(' ')
+    const [conteudo, setconteudo] = useState(' ')
     const [tipo, settipo] = useState('tipo2')
     const [rgb, setrgb] = useState("#37d67a");
+    const [showpicker, setshowpicker] = useState(false)
     useEffect(() =>{
     })
     function hexToRgb(hex) {
@@ -43,6 +44,14 @@ export default function Conteudo(){
         }
         else{
             return e
+        }
+    }
+    function mostrarpicker(){
+        if(showpicker){
+            setshowpicker(false)
+        }
+        else{
+            setshowpicker(true)
         }
     }
     function criar_imagem(){
@@ -80,8 +89,16 @@ export default function Conteudo(){
                     <img alt='style' src={Est1}></img>
             </div>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center', height:'15%', width:'100%'}}>
-                <img className='modelo' src={Cert2} alt='Certificado2'></img>
-                <img className='modelo' src={Cert3} alt='Certificado3'></img>
+                <button className='modelo' onClick={() => settipo('tipo2')} 
+                    style={{background:'url('+Cert2+')', 
+                    backgroundPosition:'center', 
+                    backgroundRepeat:'no-repeat', 
+                    backgroundSize:'cover'}}></button>
+                <button className='modelo' onClick={() => settipo('tipo1')} 
+                    style={{background:'url('+Cert3+')', 
+                    backgroundPosition:'center', 
+                    backgroundRepeat:'no-repeat', 
+                    backgroundSize:'cover'}} alt='Certificado3'></button>
             </div>
             <div className='estilo'>
                     <img alt='style' src={Est2}></img>
@@ -119,7 +136,16 @@ export default function Conteudo(){
                             <input onChange={(event) => setdata(event.target.value)} placeholder='12/02/2020'></input>
                         </div>
                     </div>
-                    <ChromePicker color={rgb} height='80px' width='100%' onChange={(color) => setrgb(color.hex)} />
+                    <div className='box'>
+                        <h1>Escolha a cor:</h1>
+                        <h4 className='selecionarRgb' onClick={() => mostrarpicker()}><div style={{background:rgb}} className='cor'></div>{rgb}</h4>
+                    </div>
+                    <div className={showpicker? 'colorpicker show':'colorpicker'}>
+                        <ChromePicker color={rgb} height='80px' width='100%' onChange={(color) => setrgb(color.hex)} />
+                    </div>
+                    <div>
+                        <button onClick={() => criar_imagem()} className='criar'>Gerar imagem</button>
+                    </div> 
                 </div>
                 <div className='container' >
                     <div className='principal' alt="perfil2" style={{backgroundImage:'url('+imagem+')', backgroundRepeat:'no-repeat', backgroundPosition:'center', backgroundSize:'cover'}}>
@@ -133,9 +159,6 @@ export default function Conteudo(){
                     </div>
                 </div>
             </div>
-            <div>
-                <button onClick={() => criar_imagem()} className='criar'>Gerar imagem</button>
-            </div> 
         </div>
     )
 }

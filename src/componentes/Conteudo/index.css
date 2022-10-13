@@ -122,6 +122,36 @@
     width: 100%;
     height: 74px;
 }
+.conteudo .descri .box h1{
+    font-size: 23px;
+    color: #7c7c7c;
+}
+.conteudo .descri .box .cor{
+    border-radius: 3px;
+    width: 10%;
+    height: 100%;
+}
+.conteudo .descri .box .selecionarRgb{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 23px;
+    color: #000000;
+}
+.conteudo .descri .colorpicker{
+    top: 500px;
+    border-bottom: 2px solid rgba(94, 94, 94, 0.26);
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 18%;
+    height: 20%;
+}
+.conteudo .descri .colorpicker.show{
+    position: absolute;
+    background: whitesmoke;
+    display: flex;
+}
 .conteudo .descri .box input{
     font-weight: 800;
     border: none;
@@ -268,6 +298,14 @@
     cursor: pointer;
     scale: 1;
 }
+.conteudo .modelo:focus{
+    box-shadow: 5px 5px 28px rgba(13, 144, 177, 0.822);
+
+    border: 4px solid rgb(59, 71, 173);
+
+    cursor: pointer;
+    scale: 1;
+}
 @keyframes loading {
     from {
         transform: rotate(0deg);
@@ -290,6 +328,7 @@
         flex-direction: column;
     }
     .conteudo .descri{
+        justify-content: center;
         flex-wrap: wrap;
         flex-direction: row;
         width: 100%;
@@ -307,5 +346,11 @@
     .conteudo .estilo img {
         width: 19%;
         height: 44%;
+    }
+    .conteudo .descri .colorpicker.show{
+        top: 443px;
+        left: 76px;
+        width: 60%;
+        height: 10%;
     }
 }
