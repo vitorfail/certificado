@@ -7,7 +7,7 @@ import Dow from '../../dowload.png'
 import Est1 from '../../estilo1.png'
 import Est2 from '../../estilo2.png'
 import Eng from '../../engrenagem.png'
-import { SketchPicker } from 'react-color'
+import { SketchPicker, ChromePicker } from 'react-color'
 
 export default function Conteudo(){
     const [execution ,setexecution] =useState(false)
@@ -87,7 +87,7 @@ export default function Conteudo(){
                     <img alt='style' src={Est2}></img>
                     <img alt='style' src={Est1}></img>
             </div>
-            <div style={{scale:'0.9',display:'flex', height:'47%', width:'100%', paddingBottom:"45px"}}>
+            <div className='montagem'>
                 <div className='descri'>
                     <div className='box'>
                         <h3>Formando: </h3>
@@ -119,7 +119,7 @@ export default function Conteudo(){
                             <input onChange={(event) => setdata(event.target.value)} placeholder='12/02/2020'></input>
                         </div>
                     </div>
-                    <SketchPicker disableAlpha={true} color={rgb} height='200px' width='91%' onChange={(color) => setrgb(color.hex)} />
+                    <ChromePicker color={rgb} height='80px' width='100%' onChange={(color) => setrgb(color.hex)} />
                 </div>
                 <div className='container' >
                     <div className='principal' alt="perfil2" style={{backgroundImage:'url('+imagem+')', backgroundRepeat:'no-repeat', backgroundPosition:'center', backgroundSize:'cover'}}>
