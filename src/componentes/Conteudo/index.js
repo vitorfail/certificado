@@ -2,7 +2,7 @@ import './index.css'
 import React, { useEffect, useState } from 'react'
 import Cert2 from '../../certificado2.jpg'
 import Cert3 from '../../certificado3.jpg'
-import Axios from '../../Axios'
+import axios from 'axios'
 import Dow from '../../dowload.png'
 import Est1 from '../../estilo1.png'
 import Est2 from '../../estilo2.png'
@@ -56,7 +56,7 @@ export default function Conteudo(){
     }
     function criar_imagem(){
         setexecution(true)
-        Axios.post("https://Criarcertificado.vitorfail.repl.co", {nome:nome,
+        axios.post('https://back-certificado.herokuapp.com/', {nome:nome,
         diretor:diretor,
         reitor:reitor,
         data:data,
@@ -65,7 +65,6 @@ export default function Conteudo(){
         rgb:hexToRgb(rgb)},
         {responseType: 'blob'})
         .then(res => {
-            console.log("Minha experiência de trabalho fez de mim mais resolutivo e proativo. Tendo que".length)
             const url = res.data
             const imageurl = URL.createObjectURL(url);
             setexecution(false)
