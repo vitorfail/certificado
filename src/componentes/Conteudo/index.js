@@ -11,12 +11,13 @@ import Est1 from '../../estilo1.png'
 import Est2 from '../../estilo2.png'
 import Eng from '../../engrenagem.png'
 import { SketchPicker, ChromePicker } from 'react-color'
+import { Contexto } from '../../StoreContext'
 
 export default function Conteudo(){
+    const {nome, setnome} = React.useContext(Contexto)
     const [execution ,setexecution] =useState(false)
     const [mostrardowload ,setmostrardowload] =useState(false)
     const [imagem, setimagem] = useState('')
-    const [nome, setnome] = useState(' ')
     const [diretor, setdiretor] = useState(' ')
     const [reitor, setreitor] = useState(' ')
     const [data, setdata] = useState(' ')
@@ -125,7 +126,7 @@ export default function Conteudo(){
                     <div className='box'>
                         <h3>Formando: </h3>
                         <div className='linha'>
-                            <input onChange={(event) => setnome(event.target.value)} placeholder='José Manoel'></input>
+                            <button onClick={() => setpopup_nome(true)}>Adicionar nome</button>
                         </div>
                     </div>
                     <div className='box'>

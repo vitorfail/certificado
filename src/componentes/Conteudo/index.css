@@ -198,6 +198,14 @@
     width: 27%;
     font-size: 20px;
 }
+.conteudo .descri .linha button{
+    font-weight: 800;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(42, 44, 48);
+    font-size: 20px;
+    border-radius: 6px;
+}
 .linha select .BauerBodoniStd-Roman{
     font-family: BauerBodoniStd-Roman;
 }
