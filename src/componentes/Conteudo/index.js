@@ -1,7 +1,10 @@
 import './index.css'
 import React, { useEffect, useState } from 'react'
+import Cert1 from '../../certificado1.jpg'
 import Cert2 from '../../certificado2.jpg'
 import Cert3 from '../../certificado3.jpg'
+import Cert4 from '../../certificado4.jpg'
+
 import axios from 'axios'
 import Dow from '../../dowload.png'
 import Est1 from '../../estilo1.png'
@@ -88,16 +91,30 @@ export default function Conteudo(){
                     <img alt='style' src={Est1}></img>
             </div>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center', height:'15%', width:'100%'}}>
+                <button className='modelo' onClick={() => settipo('tipo1')} 
+                    style={{background:'url('+Cert1+')', 
+                    backgroundPosition:'center', 
+                    backgroundRepeat:'no-repeat', 
+                    backgroundSize:'cover'}}>
+                </button>
                 <button className='modelo' onClick={() => settipo('tipo2')} 
                     style={{background:'url('+Cert2+')', 
                     backgroundPosition:'center', 
                     backgroundRepeat:'no-repeat', 
-                    backgroundSize:'cover'}}></button>
-                <button className='modelo' onClick={() => settipo('tipo1')} 
+                    backgroundSize:'cover'}} alt='Certificado3'>
+                </button>
+                <button className='modelo' onClick={() => settipo('tipo3')} 
+                    style={{background:'url('+Cert4+')', 
+                    backgroundPosition:'center', 
+                    backgroundRepeat:'no-repeat', 
+                    backgroundSize:'cover'}} alt='Certificado3'>
+                </button>
+                <button className='modelo' onClick={() => settipo('tipo4')} 
                     style={{background:'url('+Cert3+')', 
                     backgroundPosition:'center', 
                     backgroundRepeat:'no-repeat', 
-                    backgroundSize:'cover'}} alt='Certificado3'></button>
+                    backgroundSize:'cover'}} alt='Certificado3'>
+                </button>
             </div>
             <div className='estilo'>
                     <img alt='style' src={Est2}></img>
