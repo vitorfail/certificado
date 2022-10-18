@@ -10,11 +10,10 @@ import Dow from '../../dowload.png'
 import Est1 from '../../estilo1.png'
 import Est2 from '../../estilo2.png'
 import Eng from '../../engrenagem.png'
-import { SketchPicker, ChromePicker } from 'react-color'
-import { Contexto } from '../../StoreContext'
+import {  ChromePicker } from 'react-color'
 
 export default function Conteudo(){
-    const {nome, setnome} = React.useContext(Contexto)
+    const [nome, setnome] = useState('')
     const [execution ,setexecution] =useState(false)
     const [mostrardowload ,setmostrardowload] =useState(false)
     const [imagem, setimagem] = useState('')
@@ -126,13 +125,13 @@ export default function Conteudo(){
                     <div className='box'>
                         <h3>Formando: </h3>
                         <div className='linha'>
-                            <button onClick={() => setpopup_nome(true)}>Adicionar nome</button>
+                            <input onChange={(event) => setnome(event.target.value)} placeholder='José manoel'></input>
                         </div>
                     </div>
                     <div className='box'>
                         <h3>Diretor: </h3>
                         <div className='linha'>
-                            <input onChange={(event) => setdiretor(event.target.value)} placeholder='José Manoel'></input>
+                            <input onChange={(event) => setdiretor(event.target.value)} placeholder='Critino alfonso'></input>
                         </div>
                     </div>
                     <div className='box'>
@@ -144,7 +143,7 @@ export default function Conteudo(){
                     <div className='box'>
                         <h3>Conteudo: </h3>
                         <div className='linha'>
-                            <input onChange={(event) => setconteudo(event.target.value)} placeholder='Manoel andrade'></input>
+                            <input onChange={(event) => setconteudo(event.target.value)} placeholder='Foi devidamente formado em...'></input>
                         </div>
                     </div>
                     <div className='box'>
