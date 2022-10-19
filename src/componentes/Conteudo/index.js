@@ -13,7 +13,7 @@ import Eng from '../../engrenagem.png'
 import {  ChromePicker } from 'react-color'
 
 export default function Conteudo(){
-    const [nome, setnome] = useState('')
+    const [nome, setnome] = useState('Indefinido')
     const [execution ,setexecution] =useState(false)
     const [mostrardowload ,setmostrardowload] =useState(false)
     const [imagem, setimagem] = useState('')
