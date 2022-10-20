@@ -4,6 +4,7 @@ import Cert1 from '../../certificado1.jpg'
 import Cert2 from '../../certificado2.jpg'
 import Cert3 from '../../certificado3.jpg'
 import Cert4 from '../../certificado4.jpg'
+import Cert5 from '../../certificado5.jpg'
 
 import axios from 'axios'
 import Dow from '../../dowload.png'
@@ -22,6 +23,8 @@ export default function Conteudo(){
     const [data, setdata] = useState(' ')
     const [conteudo, setconteudo] = useState(' ')
     const [tipo, settipo] = useState('tipo2')
+    const [instituicao, setinstituicao] = useState(' ')
+    const [descri, setdescri] = useState(' ')
     const [rgb, setrgb] = useState("#37d67a");
     const [showpicker, setshowpicker] = useState(false)
     useEffect(() =>{
@@ -64,6 +67,8 @@ export default function Conteudo(){
         reitor:reitor,
         data:data,
         conteudo:filtroConteudo(conteudo),
+        instituicao:instituicao,
+        descri: descri,
          tipo:tipo,
         rgb:hexToRgb(rgb)},
         {responseType: 'blob'})
@@ -115,6 +120,12 @@ export default function Conteudo(){
                     backgroundRepeat:'no-repeat', 
                     backgroundSize:'cover'}} alt='Certificado3'>
                 </button>
+                <button className='modelo' onClick={() => settipo('tipo5')} 
+                    style={{background:'url('+Cert5+')', 
+                    backgroundPosition:'center', 
+                    backgroundRepeat:'no-repeat', 
+                    backgroundSize:'cover'}} alt='Certificado3'>
+                </button>
             </div>
             <div className='estilo'>
                     <img alt='style' src={Est2}></img>
@@ -150,6 +161,18 @@ export default function Conteudo(){
                         <h3>Data: </h3>
                         <div className='linha'>
                             <input onChange={(event) => setdata(event.target.value)} placeholder='12/02/2020'></input>
+                        </div>
+                    </div>
+                    <div className='box'>
+                        <h3>Instituição: </h3>
+                        <div className='linha'>
+                            <input onChange={(event) => setinstituicao(event.target.value)} placeholder='Centro Adatuo bezeera...'></input>
+                        </div>
+                    </div>
+                    <div className='box'>
+                        <h3>Descrição da instituição: </h3>
+                        <div className='linha'>
+                            <input onChange={(event) => setdescri(event.target.value)} placeholder='E.E.i ...'></input>
                         </div>
                     </div>
                     <div className='box'>
