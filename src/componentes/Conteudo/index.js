@@ -5,6 +5,8 @@ import Cert2 from '../../certificado2.jpg'
 import Cert3 from '../../certificado3.jpg'
 import Cert4 from '../../certificado4.jpg'
 import Cert5 from '../../certificado5.jpg'
+import Seta1 from '../../icons/seta1.png'
+import Seta2 from '../../icons/seta2.png'
 
 import axios from 'axios'
 import Dow from '../../dowload.png'
@@ -14,6 +16,7 @@ import Eng from '../../engrenagem.png'
 import {  ChromePicker } from 'react-color'
 
 export default function Conteudo(){
+    const [margin, setmargin]= useState(0)
     const [nome, setnome] = useState('Indefinido')
     const [execution ,setexecution] =useState(false)
     const [mostrardowload ,setmostrardowload] =useState(false)
@@ -62,6 +65,7 @@ export default function Conteudo(){
     }
     function criar_imagem(){
         setexecution(true)
+        setmostrardowload(false)
         axios.post('https://back-certificado.herokuapp.com/', {nome:nome,
         diretor:diretor,
         reitor:reitor,
@@ -84,6 +88,16 @@ export default function Conteudo(){
             console.log(err)
         })
     }
+    function passar_esquerda(){
+        if(margin < 960){
+            setmargin(margin+480)
+        }
+    }
+    function passar_direito(){
+        if(margin > -960){
+            setmargin(margin-480)
+        }
+    }
     return(
         <div className='conteudo'>
             <div className='comeco'>
@@ -95,37 +109,47 @@ export default function Conteudo(){
                     <img alt='style' src={Est2}></img>
                     <img alt='style' src={Est1}></img>
             </div>
-            <div style={{display:'flex', justifyContent:'center',alignItems:'center', height:'15%', width:'100%'}}>
-                <button className='modelo' onClick={() => settipo('tipo1')} 
-                    style={{background:'url('+Cert1+')', 
-                    backgroundPosition:'center', 
-                    backgroundRepeat:'no-repeat', 
-                    backgroundSize:'cover'}}>
-                </button>
-                <button className='modelo' onClick={() => settipo('tipo2')} 
-                    style={{background:'url('+Cert2+')', 
-                    backgroundPosition:'center', 
-                    backgroundRepeat:'no-repeat', 
-                    backgroundSize:'cover'}} alt='Certificado3'>
-                </button>
-                <button className='modelo' onClick={() => settipo('tipo3')} 
-                    style={{background:'url('+Cert4+')', 
-                    backgroundPosition:'center', 
-                    backgroundRepeat:'no-repeat', 
-                    backgroundSize:'cover'}} alt='Certificado3'>
-                </button>
-                <button className='modelo' onClick={() => settipo('tipo4')} 
-                    style={{background:'url('+Cert3+')', 
-                    backgroundPosition:'center', 
-                    backgroundRepeat:'no-repeat', 
-                    backgroundSize:'cover'}} alt='Certificado3'>
-                </button>
-                <button className='modelo' onClick={() => settipo('tipo5')} 
-                    style={{background:'url('+Cert5+')', 
-                    backgroundPosition:'center', 
-                    backgroundRepeat:'no-repeat', 
-                    backgroundSize:'cover'}} alt='Certificado3'>
-                </button>
+            <div className='lista-modelos'>
+                <div className='setas'>
+                    <div className='fundo-seta' onClick={() => passar_esquerda()}>
+                        <img className='seta2' src={Seta2}></img>
+                    </div>
+                    <div className='fundo-seta' onClick={() => passar_direito()}>
+                        <img className='seta1' src={Seta1}></img>
+                    </div>
+                </div>
+                <div className='container-modelos' style={{marginLeft:margin+'px'}}>
+                    <button className='modelo' onClick={() => settipo('tipo1')} 
+                        style={{background:'url('+Cert1+')', 
+                        backgroundPosition:'center', 
+                        backgroundRepeat:'no-repeat', 
+                        backgroundSize:'cover'}}>
+                    </button>
+                    <button className='modelo' onClick={() => settipo('tipo2')} 
+                        style={{background:'url('+Cert2+')', 
+                        backgroundPosition:'center', 
+                        backgroundRepeat:'no-repeat', 
+                        backgroundSize:'cover'}} alt='Certificado3'>
+                    </button>
+                    <button className='modelo' onClick={() => settipo('tipo3')} 
+                        style={{background:'url('+Cert4+')', 
+                        backgroundPosition:'center', 
+                        backgroundRepeat:'no-repeat', 
+                        backgroundSize:'cover'}} alt='Certificado3'>
+                    </button>
+                    <button className='modelo' onClick={() => settipo('tipo4')} 
+                        style={{background:'url('+Cert3+')', 
+                        backgroundPosition:'center', 
+                        backgroundRepeat:'no-repeat', 
+                        backgroundSize:'cover'}} alt='Certificado3'>
+                    </button>
+                    <button className='modelo' onClick={() => settipo('tipo5')} 
+                        style={{background:'url('+Cert5+')', 
+                        backgroundPosition:'center', 
+                        backgroundRepeat:'no-repeat', 
+                        backgroundSize:'cover'}} alt='Certificado3'>
+                    </button>
+                </div>
             </div>
             <div className='estilo'>
                     <img alt='style' src={Est2}></img>
