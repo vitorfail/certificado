@@ -139,7 +139,7 @@
     color: #000000;
 }
 .conteudo .descri .colorpicker{
-    top: 500px;
+    top: 641px;
     border-bottom: 2px solid rgba(94, 94, 94, 0.26);
     display: none;
     justify-content: flex-start;
@@ -356,7 +356,7 @@
         height: 44%;
     }
     .conteudo .descri .colorpicker.show{
-        top: 443px;
+        top: 573px;
         left: 76px;
         width: 60%;
         height: 10%;
