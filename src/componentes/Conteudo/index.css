@@ -330,23 +330,25 @@
     cursor: pointer;
     scale: 1;
 }
-.setas{
-    height: 120px;
-    width: 100%;
-    justify-content: space-between;
-    display: none;
+.seta2{
+    right: 0;
+}
+.seta1{
+    left: 0;
+}
+.seta1, .seta2{
     z-index: 99;
-    position: absolute;
-}
-.setas .fundo-seta{
     background: #143f4267;
-    display: flex;
+    display: none;
     align-items: center;
+    position: absolute;
+    width: 50px;
+    height: 150px;
 }
-.setas img{
+.seta1 img, .seta2 img{
     padding: 0;
-    width: 76px;
-    height: 76px;
+    width: 51px;
+    height: 51px;
 }
 
 @keyframes loading {
@@ -410,8 +412,7 @@
     .conteudo .lista-modelos{
         width: 1200px;
     }
-    .setas{
+    .seta1, .seta2{
         display: flex;
     }
-
 }

@@ -110,13 +110,11 @@ export default function Conteudo(){
                     <img alt='style' src={Est1}></img>
             </div>
             <div className='lista-modelos'>
-                <div className='setas'>
-                    <div className='fundo-seta' onClick={() => passar_esquerda()}>
-                        <img className='seta2' src={Seta2}></img>
-                    </div>
-                    <div className='fundo-seta' onClick={() => passar_direito()}>
-                        <img className='seta1' src={Seta1}></img>
-                    </div>
+                <div className='seta1' onClick={() => passar_esquerda()}>
+                    <img  src={Seta2}></img>
+                </div>
+                <div className='seta2' onClick={() => passar_direito()}>
+                    <img  src={Seta1}></img>
                 </div>
                 <div className='container-modelos' style={{marginLeft:margin+'px'}}>
                     <button className='modelo' onClick={() => settipo('tipo1')} 
