@@ -14,8 +14,10 @@ import Est1 from '../../estilo1.png'
 import Est2 from '../../estilo2.png'
 import Eng from '../../engrenagem.png'
 import {  ChromePicker } from 'react-color'
+import { Contexto } from '../../StoreContext'
 
 export default function Conteudo(){
+    const { setpopup_aviso} = React.useContext(Contexto)
     const [margin, setmargin]= useState(0)
     const [nome, setnome] = useState('Indefinido')
     const [execution ,setexecution] =useState(false)
@@ -85,7 +87,8 @@ export default function Conteudo(){
         })
         .catch(err => {
             setexecution(false)
-            console.log(err)
+            setpopup_aviso(true)
+            console.log('passou aqui')
         })
     }
     function passar_esquerda(){
