@@ -68,7 +68,7 @@ export default function Conteudo(){
     function criar_imagem(){
         setexecution(true)
         setmostrardowload(false)
-        axios.post('https://back-certificado.herokuapp.com/', {nome:nome,
+        axios.post('https://web-production-349e.up.railway.app/', {nome:nome,
         diretor:diretor,
         reitor:reitor,
         data:data,
