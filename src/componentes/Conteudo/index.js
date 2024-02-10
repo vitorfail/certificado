@@ -27,7 +27,7 @@ export default function Conteudo(){
     const [reitor, setreitor] = useState(' ')
     const [data, setdata] = useState(' ')
     const [conteudo, setconteudo] = useState(' ')
-    const [tipo, settipo] = useState('tipo2')
+    const [tipo, settipo] = useState('tipo1')
     const [instituicao, setinstituicao] = useState(' ')
     const [descri, setdescri] = useState(' ')
     const [rgb, setrgb] = useState("#37d67a");
@@ -68,7 +68,7 @@ export default function Conteudo(){
     function criar_imagem(){
         setexecution(true)
         setmostrardowload(false)
-        axios.post('https://web-production-349e.up.railway.app/', {nome:nome,
+        axios.post('https://beckend-criar-certificado.vercel.app/', {nome:nome,
         diretor:diretor,
         reitor:reitor,
         data:data,
@@ -114,10 +114,10 @@ export default function Conteudo(){
             </div>
             <div className='lista-modelos'>
                 <div className='seta1' onClick={() => passar_esquerda()}>
-                    <img  src={Seta2}></img>
+                    <img alt='seta'  src={Seta2}></img>
                 </div>
                 <div className='seta2' onClick={() => passar_direito()}>
-                    <img  src={Seta1}></img>
+                    <img alt='seta' src={Seta1}></img>
                 </div>
                 <div className='container-modelos' style={{marginLeft:margin+'px'}}>
                     <button className='modelo' onClick={() => settipo('tipo1')} 
