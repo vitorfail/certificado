@@ -33,6 +33,7 @@ export default function Conteudo(){
     const [descri, setdescri] = useState(' ')
     const [rgb, setrgb] = useState("#37d67a");
     const [showpicker, setshowpicker] = useState(false)
+    const [show_confete, setshow_confete] = useState(false)
     useEffect(() =>{
     })
     function hexToRgb(hex) {
@@ -67,6 +68,7 @@ export default function Conteudo(){
         }
     }
     function criar_imagem(){
+        setshow_confete(false)
         setexecution(true)
         setmostrardowload(false)
         axios.post('https://beckend-criar-certificado.vercel.app/', {nome:nome,
@@ -85,6 +87,10 @@ export default function Conteudo(){
             setexecution(false)
             setimagem(imageurl)
             setmostrardowload(true)
+            setshow_confete(true)
+            setTimeout(() => {
+                setshow_confete(false)
+            }, 1500);
         })
         .catch(err => {
             setexecution(false)
@@ -212,7 +218,7 @@ export default function Conteudo(){
                         <button onClick={() => criar_imagem()} className='criar'>Gerar imagem</button>
                     </div> 
                 </div>
-                <Confete largura={600}></Confete>
+                <Confete show={show_confete?"flex ": "none"} largura={"100%"} altura={"450px"}></Confete>
                 <div className='container' >
                     <div className='principal' alt="perfil2" style={{backgroundImage:'url('+imagem+')', backgroundRepeat:'no-repeat', backgroundPosition:'center', backgroundSize:'cover'}}>
                         <div  className={execution? 'loading show': 'loading'}>

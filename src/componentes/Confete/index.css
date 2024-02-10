@@ -32,6 +32,8 @@
     height: 150px;
 }
 .confete i{
+    z-index: 100;
+    box-shadow: 0px 0px 10px rgb(247, 247, 247);
     opacity: 0;
     border: 1px solid var(--cor);
     font-style: normal;
@@ -40,27 +42,27 @@
     color: white;
     justify-content: center;
     align-items: center;
-    width: 25px;
-    height: 35px;
-    animation: confete 8.5s ease-in-out infinite;
+    width: 3%;
+    height: 8%;
+    animation: confete 1.5s ease-in-out;
     animation-duration: calc(20s /var(--i));
-    animation-delay: 0.8s;
+    animation-delay: 0.1s;
 
 }
 @keyframes confete {
     0%{
         opacity: 1;
     }
-    70%{
-        height: 25px;
+    50%{
+        height: 8%;
     }
     
     99%{
-        transform: translateX(30px) translateY(300px) rotateX(0deg) scale(1) rotateY(112deg);
+        transform:  translateX(30px) translateY(100vh) rotateX(23deg) scale(1) rotateY(102deg);
     }
     100%{
 
-        transform:translateX(0px) translateY(300px) scale(0) rotateZ(90deg) rotateY(0deg);
+        transform:translateX(10px) translateY(100vh) scale(0) rotateZ(90deg) rotateY(40deg) rotate3d(1,1,1, 45deg);
         opacity: 1;
         height: 0px;
     }
@@ -80,5 +82,14 @@
         box-shadow: 0px 0px 37px var(--cor);
         opacity: 1;
         scale: 1;
+    }
+}
+@media screen and (max-width:600px) {
+    .campo{
+        margin-top: 100vh;
+    }
+    .confete i{
+        box-shadow: 0px 0px 0px rgb(112, 112, 112);
+        height: 5%;
     }
 }

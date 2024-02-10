@@ -2,13 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import './index.css'
 export default function Confete(props){
-    const conf = [0, 0, 0, ,0 ,0 ,0 ,0 ,0 , 0,0 ,0, 0, 0,0 ,0,0 ,0,0 ,0 ,0,0, 0,0, 0, ,0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
-    const [inicio, setinicio] = useState(true)
-    useEffect(() => {
-        setTimeout(()=> {
-            setinicio(false)
-        },4000)
-    })
+    const conf = [0, 0, 0, ,0 ,0 ,0 ,0 ,0 , 0,0 ,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0 ,0,0 ,0,0 ,0 ,0,0, 0,0, 0, ,0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
+
     function numeroAleatorio(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
@@ -27,11 +22,11 @@ export default function Confete(props){
         return cor;
     }
     return(
-        <div style={{display:props.show, width:props.largura+"px",height:props.largura+"px"}}  className="campo">
+        <div style={{display:props.show, width:props.largura,height:props.altura}}  className="campo">
             <div className='confete'>
-                <div className={inicio?"lista show":"lista"} >
+                <div className={"lista show"} >
                     {conf.map((item, key) => (
-                        <i key={key} style={{transform:"translateX("+numeroAleatorio(112, -145)+"px) rotate("+numeroAleatorio(12, -145)+"deg) rotate("+numeroAleatorio(12, -145)+"deg) rotate("+numeroAleatorio(12, -145)+"deg)","--i":numeroAleatorio(12, 45), background:corAleatoria()}}></i>
+                        <i key={key} style={{transform:"translateX("+numeroAleatorio(112, -145)+"px) rotate("+numeroAleatorio(12, -145)+"deg) rotate("+numeroAleatorio(112, -145)+"deg) rotate("+numeroAleatorio(12, -145)+"deg)","--i":numeroAleatorio(12, 45), background:corAleatoria()}}></i>
                     ))}
                 </div>
             </div>
