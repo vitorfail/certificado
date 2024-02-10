@@ -15,6 +15,7 @@ import Est2 from '../../estilo2.png'
 import Eng from '../../engrenagem.png'
 import {  ChromePicker } from 'react-color'
 import { Contexto } from '../../StoreContext'
+import Confete from '../Confete'
 
 export default function Conteudo(){
     const { setpopup_aviso} = React.useContext(Contexto)
@@ -211,6 +212,7 @@ export default function Conteudo(){
                         <button onClick={() => criar_imagem()} className='criar'>Gerar imagem</button>
                     </div> 
                 </div>
+                <Confete largura={600}></Confete>
                 <div className='container' >
                     <div className='principal' alt="perfil2" style={{backgroundImage:'url('+imagem+')', backgroundRepeat:'no-repeat', backgroundPosition:'center', backgroundSize:'cover'}}>
                         <div  className={execution? 'loading show': 'loading'}>
