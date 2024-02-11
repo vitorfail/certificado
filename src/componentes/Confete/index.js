@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import './index.css'
 export default function Confete(props){
-    const conf = [0, 0, 0, ,0 ,0 ,0 ,0 ,0 , 0,0 ,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0 ,0,0 ,0,0 ,0 ,0,0, 0,0, 0, ,0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
+    const conf = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
     function numeroAleatorio(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
-    function numero(){
-        return Math.floor(Math.random() * (50 - (-34) + 1) + (-34));
-    }
+
     function corAleatoria() {
         // Gerar valores aleatórios para Red, Green e Blue
         var red = Math.floor(Math.random() * 256);

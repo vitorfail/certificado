@@ -71,7 +71,7 @@ export default function Conteudo(){
         setshow_confete(false)
         setexecution(true)
         setmostrardowload(false)
-        axios.post('https://beckend-criar-certificado.vercel.app/', {nome:nome,
+        axios.post(process.env.REACT_APP_HOST, {nome:nome,
         diretor:diretor,
         reitor:reitor,
         data:data,
@@ -90,12 +90,11 @@ export default function Conteudo(){
             setshow_confete(true)
             setTimeout(() => {
                 setshow_confete(false)
-            }, 1500);
+            }, 3500);
         })
         .catch(err => {
             setexecution(false)
             setpopup_aviso(true)
-            console.log('passou aqui')
         })
     }
     function passar_esquerda(){
@@ -127,36 +126,11 @@ export default function Conteudo(){
                     <img alt='seta' src={Seta1}></img>
                 </div>
                 <div className='container-modelos' style={{marginLeft:margin+'px'}}>
-                    <button className='modelo' onClick={() => settipo('tipo1')} 
-                        style={{background:'url('+Cert1+')', 
-                        backgroundPosition:'center', 
-                        backgroundRepeat:'no-repeat', 
-                        backgroundSize:'cover'}}>
-                    </button>
-                    <button className='modelo' onClick={() => settipo('tipo2')} 
-                        style={{background:'url('+Cert2+')', 
-                        backgroundPosition:'center', 
-                        backgroundRepeat:'no-repeat', 
-                        backgroundSize:'cover'}} alt='Certificado3'>
-                    </button>
-                    <button className='modelo' onClick={() => settipo('tipo3')} 
-                        style={{background:'url('+Cert4+')', 
-                        backgroundPosition:'center', 
-                        backgroundRepeat:'no-repeat', 
-                        backgroundSize:'cover'}} alt='Certificado3'>
-                    </button>
-                    <button className='modelo' onClick={() => settipo('tipo4')} 
-                        style={{background:'url('+Cert3+')', 
-                        backgroundPosition:'center', 
-                        backgroundRepeat:'no-repeat', 
-                        backgroundSize:'cover'}} alt='Certificado3'>
-                    </button>
-                    <button className='modelo' onClick={() => settipo('tipo5')} 
-                        style={{background:'url('+Cert5+')', 
-                        backgroundPosition:'center', 
-                        backgroundRepeat:'no-repeat', 
-                        backgroundSize:'cover'}} alt='Certificado3'>
-                    </button>
+                    {[["tipo1", Cert1], ["tipo2", Cert2], ["tipo3",Cert3], ["tipo4", Cert4], ["tipo5", Cert5]].map((item,key) => (
+                        <button key={key} id={tipo==item[0]?'acender':""} className='modelo' onClick={() => settipo(item[0])} 
+                            style={{background:'url('+item[1]+') center center / cover no-repeat'}}>
+                        </button>
+                    ))}
                 </div>
             </div>
             <div className='estilo'>
