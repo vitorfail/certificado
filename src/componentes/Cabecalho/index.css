@@ -2,34 +2,23 @@ header{
     z-index: 99;
     position: fixed;
     top: 0;
-    height: 52px;
+    height: 45px;
     display: flex;
     justify-content: center;
     width: 100%;
-    background: rgb(255, 255, 255);
-    box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
-}
-header .selo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 65px;
-    height: 100%;
-    background: rgb(22, 145, 228);
+    background: linear-gradient(rgb(255, 255, 255), rgb(187, 255, 246)) ;
     box-shadow: 1px 1px 8px rgba(51, 51, 51, 0.533);
 }
 header .selo .gira{
+    border-radius: 0% 100% 50% 50% / 0% 0% 100% 100%  ;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all ease 0.2s;
-    box-shadow: 5px 5px 5px rgba(51, 51, 51, 0.533);
-    top:26px;
-    position: fixed;
+    top:0px;
     background: rgb(22, 145, 228);
-    height: 47.6px;
-    width: 47.6px;
-    transform: rotate(45deg);
+    height: 100%;
+    width: 67.6px;
 }
 header .selo .gira.rodar{
     transition: all ease 0.3s;
@@ -37,7 +26,7 @@ header .selo .gira.rodar{
     box-shadow: 0px 0px 0px rgba(51, 51, 51, 0.533);
 }
 header .selo img{
-    width: inherit;
-    height: inherit;
+    width: 45px;
+    height: 45px;
     scale: 0.8;
 }

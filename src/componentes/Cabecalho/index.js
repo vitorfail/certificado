@@ -4,8 +4,15 @@ import Eng from '../../engrenagem.png'
 
 export default function Cabecalho(){
     const [header, setheader] = useState(false)
+    const [rotation, setrotation] = useState(0)
     useEffect(() => {
+        const checarScroll = () =>{
+            setrotation(rotation+6)
+  
+          }  
         const rolagem = () =>{
+            setrotation(rotation+6)
+
             if(window.scrollY> 10){
                 setheader(true)
             }
@@ -18,11 +25,12 @@ export default function Cabecalho(){
           window.removeEventListener("scroll", rolagem)
         }
     })
+    
     return(
         <header>
             <div className='selo'>
-                <div className={header? 'gira rodar': 'gira'}>
-                    <img src={Eng}></img>
+                <div className={ 'gira'}>
+                    <img style={{transform:'rotateZ('+rotation+'deg)'}} src={Eng}></img>
                 </div>
             </div>
         </header>
