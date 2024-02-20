@@ -126,7 +126,7 @@ export default function Conteudo(){
                     <img alt='seta' src={Seta1}></img>
                 </div>
                 <div className='container-modelos' style={{marginLeft:margin+'px'}}>
-                    {[["tipo1", Cert1], ["tipo2", Cert2], ["tipo3",Cert3], ["tipo4", Cert4], ["tipo5", Cert5]].map((item,key) => (
+                    {[["tipo1", Cert1], ["tipo2", Cert2], ["tipo4",Cert3], ["tipo3", Cert4], ["tipo5", Cert5]].map((item,key) => (
                         <button key={key} id={tipo==item[0]?'acender':""} className='modelo' onClick={() => settipo(item[0])} 
                             style={{background:'url('+item[1]+') center center / cover no-repeat'}}>
                         </button>
